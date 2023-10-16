@@ -15,8 +15,23 @@ const data = await resp.json();
 <Layout title="UK Friends of Standing Together">
   <main>
     <NewsletterForm />
-    <a id=donate target="_blank" data-button href="https://www.standing-together.org/donatehere">Donate to Standing Together</a>
-    <div id=grid>
+    <div id="actions">
+      <a id="about" data-button href="/about">About</a>
+      <a
+        id="donate"
+        target="_blank"
+        data-button
+        href="https://www.standing-together.org/donatehere"
+      >
+        Donate to Standing Together
+      </a>
+      <a
+        id="standing-together"
+        data-button
+        href="https://www.standing-together.org/en">Standing Together</a
+      >
+    </div>
+    <div id="grid">
       <div id="posts">
         <h2>Latest articles</h2>
         {data.posts.map((post) => <Post data={post} />)}
@@ -28,12 +43,25 @@ const data = await resp.json();
 </Layout>
 
 <style>
-  #posts {
-    grid-area: posts;
+  #actions {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    background-color: var(--dark-purple);
   }
-  #donate {
+  #actions a {
     margin-block: 24px;
     font-size: 24px;
+  }
+  #about {
+    background-color: var(--blue);
+  }
+  #standing-together {
+    background-color: var(--pink);
+  }
+  #posts {
+    grid-area: posts;
   }
   main {
     display: flex;
@@ -42,9 +70,9 @@ const data = await resp.json();
   }
   #grid {
     display: grid;
-    grid-template: 
-              "posts right1" auto
-              "posts right2" auto / 1fr 500px;
+    grid-template:
+      "posts right1" auto
+      "posts right2" auto / 1fr 500px;
     row-gap: 8px;
     column-gap: 16px;
     align-self: center;

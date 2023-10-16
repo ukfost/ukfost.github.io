@@ -35,6 +35,8 @@ const { title } = Astro.props as Props;
     --purple: #8f288c;
     --dark-purple: rgb(72, 20, 70);
     --orange: rgb(238, 129, 0);
+    --pink: rgb(230, 99, 141);
+    --blue: rgb(24, 193, 192);
     --max-w: 1200px;
     line-height: 1.4;
     background: var(--dark-purple);
@@ -45,7 +47,7 @@ const { title } = Astro.props as Props;
   button,
   [data-button] {
     font-size: 16px;
-    border-radius: 4px;
+    border-radius: 6px;
   }
 
   input[type="email"] {
@@ -57,8 +59,8 @@ const { title } = Astro.props as Props;
   input[type="submit"],
   [data-button] {
     padding-block: 4px;
-    padding-inline: 8px;
-    display: block;
+    padding-inline: 16px;
+    display: inline-block;
     background: var(--dark-purple);
     color: white;
     appearance: none;
