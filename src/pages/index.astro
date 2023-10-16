@@ -49,10 +49,11 @@ const data = await resp.json();
     justify-content: center;
     gap: 8px;
     background-color: var(--dark-purple);
+    margin-inline: 4px;
   }
   #actions a {
     margin-block: 24px;
-    font-size: 24px;
+    font-size: 22px;
   }
   #about {
     background-color: var(--blue);
@@ -68,15 +69,24 @@ const data = await resp.json();
     align-items: center;
     flex-direction: column;
   }
+
   #grid {
     display: grid;
-    grid-template:
-      "posts right1" auto
-      "posts right2" auto / 1fr 500px;
     row-gap: 8px;
     column-gap: 16px;
     align-self: center;
     max-width: var(--max-w);
     padding: 5px;
+    grid-template:
+      "posts" auto
+      "right1" auto
+      "right2" auto / 1fr;
+  }
+  @media (min-width: 800px) {
+    #grid {
+      grid-template:
+        "posts right1" auto
+        "posts right2" auto / 1fr 500px;
+    }
   }
 </style>

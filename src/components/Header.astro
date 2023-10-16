@@ -38,14 +38,25 @@
     position: absolute;
     right: 0;
     display: flex;
-    
+  }
+  @media (min-width: 500px) {
+    #twitter,
+    #logo {
+      display: block !important;
+    }
+  }
+  #twitter,
+  #logo {
+    display: none;
   }
 </style>
 
 <header>
   <div>
-    <a href="/"><img id=logo src="/inverted.webp" /></a>
-    <a id=title href="/">UK Friends of Standing Together</a>
-    <a id=twitter href="https://twitter.com/omdimbeyachadUK"><img src="/twitter.svg" alt="@omdimbeyachadUK" /></a>
+    <a href="/"><img id="logo" src="/inverted.webp" /></a>
+    <a id="title" href="/">UK Friends of Standing Together</a>
+    <a id="twitter" href="https://twitter.com/omdimbeyachadUK"
+      ><img src="/twitter.svg" alt="@omdimbeyachadUK" /></a
+    >
   </div>
 </header>

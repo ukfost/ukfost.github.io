@@ -7,9 +7,8 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-image: 
-      linear-gradient(
-        rgba(71, 11, 61, 0.63), 
+    background-image: linear-gradient(
+        rgba(71, 11, 61, 0.63),
         rgba(71, 11, 61, 0.63)
       ),
       url("/banner.jpg");
@@ -19,8 +18,8 @@
     color: white;
     position: relative;
   }
-  input[type=email] {
-    width: 30ch;
+  input[type="email"] {
+    max-width: 30ch;
   }
   #fields {
     display: flex;
@@ -30,17 +29,20 @@
   img {
     width: 100%;
   }
+  h2 {
+    text-align: center;
+  }
 </style>
 
-<form id="newsletter">
+<form id="newsletter" method="POST" action="/subscribe">
   <h2>Subscribe to the UK Friends of Standing Together Newsletter</h2>
-  <div id=fields>
+  <div id="fields">
     <input name="email" type="email" placeholder="Email" />
-    <input type="submit" value="Subscribe"/>
-  <div>
+    <input type="submit" value="Subscribe" />
+  </div>
 </form>
 
-<script>
+<!-- <script>
   document.getElementById("newsletter").onsubmit = (e) => {
     e.preventDefault();
     const email = e.target.email.value;
@@ -48,4 +50,4 @@
 
     return false;
   }
-</script>
+</script> -->
