@@ -1,0 +1,16 @@
+---
+export interface Props {
+  data: any;
+}
+
+const { data } = Astro.props as Props;
+---
+
+<style></style>
+
+<article>
+  <a href={"/" + data.slug}>
+    <h3>{data.title}</h3>
+    <p set:html={data.excerpt} />
+  </a>
+</article>

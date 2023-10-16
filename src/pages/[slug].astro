@@ -1,0 +1,33 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+export const prerender = true;
+
+export async function getStaticPaths() {
+  const resp = await fetch(
+    "https://public-api.wordpress.com/rest/v1.1/sites/ukfost.wordpress.com/posts/"
+  );
+  let data = await resp.json();
+
+  return data.posts.map((post) => ({
+    params: { slug: post.slug },
+    props: { post: post },
+  }));
+}
+
+const { post } = Astro.props;
+---
+
+<Layout title={post.title + " | UK Friends of Standing Together"}>
+  <main>
+    <h1 set:html={post.title}></h1>
+    <div set:html={post.content} />
+  </main>
+</Layout>
+
+<style>
+    main {
+        max-width: min(var(--max-w), 600px);
+        margin: 16px auto;
+    }
+</style>
