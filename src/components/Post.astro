@@ -10,7 +10,7 @@ const { data } = Astro.props as Props;
 
 <article>
   <a href={"/" + data.slug}>
-    <h3>{data.title}</h3>
+    <h3 set:html={data.title} />
     <p set:html={data.excerpt} />
   </a>
 </article>
