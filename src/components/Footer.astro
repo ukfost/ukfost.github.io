@@ -9,42 +9,49 @@
     margin-top: 20px;
     margin-top: auto;
   }
-  /* bottom: 0px;
-    left: 0px;
-    right: 0px; */
-  /* position: absolute; */
-  footer div {
-    display: flex;
-    justify-content: center;
+  #grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 8px;
+    justify-items: center;
+  }
+  @media (min-width: 800px) {
+    #grid {
+      grid-template-columns: 1fr 1fr;
+      grid-template-areas:
+        "a a"
+        "b b"
+        "c d";
+    }
+    #grid > *:nth-child(1) {
+      grid-area: a;
+    }
+    #grid > *:nth-child(2) {
+      grid-area: b;
+    }
+    #grid > *:nth-child(3) {
+      width: 100%;
+      text-align: right;
+      grid-area: c;
+    }
+    #grid > *:nth-child(4) {
+      width: 100%;
+      text-align: left;
+      grid-area: d;
+    }
   }
 </style>
 
 <footer>
-  <div>
+  <div id="grid">
+    <span>ukfriendsofstandingtogether@gmail.com</span>
     <span
-      >ukfriendsofstandingtogether@gmail.com<span>
-        <span
-          >|<span>
-            <span
-              ><a href="https://www.standing-together.org/en"
-                >standing-together.org<span> </span>
-              </a></span
-            ></span
-          ></span
-        ></span
+      ><a href="https://www.standing-together.org/en">standing-together.org</a
       ></span
     >
-  </div>
-  <div>
     <span
-      ><span
-        ><a href="https://twitter.com/omdimbeyachadUK">@omdimbeyachadUK</a
-        ></span
-      > |<span>
-        <span
-          ><a href="https://twitter.com/omdimbeyachad">@omdimbeyachad</a></span
-        >
-      </span>
-    </span>
+      ><a href="https://twitter.com/omdimbeyachadUK">@omdimbeyachadUK</a></span
+    >
+    <span><a href="https://twitter.com/omdimbeyachad">@omdimbeyachad</a></span>
   </div>
 </footer>
