@@ -31,7 +31,7 @@ const data = await resp.json();
         href="https://www.standing-together.org/en">Standing Together</a
       >
     </div>
-    <div>
+    <div id="summary">
       <h2>
         Supporting Israel's Arab-Jewish social movement for peace and equality
       </h2>
@@ -49,14 +49,16 @@ const data = await resp.json();
 
 <style>
   #actions {
-    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     gap: 8px;
     background-color: var(--dark-purple);
-    margin-inline: 4px;
-    padding: 8px;
+    width: 100%;
+    padding-block: 8px;
+  }
+  #summary {
+    padding-inline: 8px;
   }
   @media (min-width: 400px) {
     #actions {
