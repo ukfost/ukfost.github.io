@@ -6,7 +6,11 @@ export interface Props {
 const { data } = Astro.props as Props;
 ---
 
-<style></style>
+<style>
+  article {
+    margin-bottom: 38px;
+  }
+</style>
 
 <article>
   <a href={"/" + data.slug}>

@@ -36,13 +36,9 @@ const data = await resp.json();
         Supporting Israel's Arab-Jewish social movement for peace and equality
       </h2>
     </div>
-    <div id="grid">
-      <div id="posts">
-        <h2>Latest articles</h2>
-        {data.posts.map((post) => <Post data={post} />)}
-      </div>
-      <!-- <Twitter username="omdimbeyachadUK" />
-      <Twitter username="omdimbeyachad" /> -->
+    <div id="posts">
+      <h2>Latest articles</h2>
+      {data.posts.map((post) => <Post data={post} />)}
     </div>
   </main>
 </Layout>
@@ -57,7 +53,8 @@ const data = await resp.json();
     width: 100%;
     padding: 8px;
   }
-  #summary {
+  #summary,
+  #posts {
     padding-inline: 8px;
   }
   @media (min-width: 400px) {
@@ -75,31 +72,12 @@ const data = await resp.json();
     background-color: var(--pink);
   }
   #posts {
-    grid-area: posts;
+    max-width: 700px;
+    margin-bottom: 38px;
   }
   main {
     display: flex;
     align-items: center;
     flex-direction: column;
-  }
-
-  #grid {
-    display: grid;
-    row-gap: 8px;
-    column-gap: 16px;
-    align-self: center;
-    max-width: var(--max-w);
-    padding: 5px;
-    grid-template:
-      "posts" auto
-      "right1" auto
-      "right2" auto / 1fr;
-  }
-  @media (min-width: 800px) {
-    #grid {
-      grid-template:
-        "posts right1" auto
-        "posts right2" auto / 1fr 500px;
-    }
   }
 </style>
