@@ -31,4 +31,10 @@ const { post } = Astro.props;
     margin: 16px auto;
     padding: 8px;
   }
+  @media (max-width: 600px) {
+    :global(.wp-block-embed-twitter, .wp-block-embed-instagram) {
+      max-width: calc(100vw - 8px);
+      margin: 0px;
+    }
+  }
 </style>
