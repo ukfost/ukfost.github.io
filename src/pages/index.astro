@@ -38,7 +38,11 @@ const data = await resp.json();
     </div>
     <div id="posts">
       <h2>Latest articles</h2>
-      {data.posts.map((post) => <Post data={post} />)}
+      {
+        data.posts
+          .filter((post) => post.slug != "about")
+          .map((post) => <Post data={post} />)
+      }
     </div>
   </main>
 </Layout>
