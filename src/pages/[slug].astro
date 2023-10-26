@@ -37,4 +37,12 @@ const { post } = Astro.props;
       margin: 0px;
     }
   }
+  :global(
+      .wp-block-embed.is-type-rich.is-provider-embed-handler.wp-block-embed-embed-handler
+    ) {
+    margin: 0px;
+  }
+  :global(.youtube-player) {
+    max-width: calc(100vw - 8px);
+  }
 </style>
