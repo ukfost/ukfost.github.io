@@ -33,7 +33,7 @@ const { post } = Astro.props;
   }
   @media (max-width: 600px) {
     :global(.wp-block-embed-twitter, .wp-block-embed-instagram) {
-      max-width: calc(100vw - 8px);
+      max-width: calc(100vw - 16px);
       margin: 0px;
     }
   }
@@ -43,6 +43,6 @@ const { post } = Astro.props;
     margin: 0px;
   }
   :global(.youtube-player) {
-    max-width: calc(100vw - 8px);
+    max-width: calc(100vw - 16px);
   }
 </style>
