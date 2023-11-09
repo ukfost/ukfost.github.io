@@ -48,4 +48,15 @@ const { post } = Astro.props;
   :global(html) {
     background: white;
   }
+  :global(figure) {
+    margin: 0;
+  }
+  :global(
+      .wp-block-embed.is-type-wp-embed.is-provider-the-point-magazine.wp-block-embed-the-point-magazine
+        iframe
+    ) {
+    position: unset !important;
+    clip: auto !important;
+    width: 100%;
+  }
 </style>
