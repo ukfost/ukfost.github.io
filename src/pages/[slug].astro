@@ -31,30 +31,32 @@ const { post } = Astro.props;
     margin: 16px auto;
     padding: 8px;
   }
+</style>
+<style is:global>
   @media (max-width: 600px) {
-    :global(.wp-block-embed-twitter, .wp-block-embed-instagram) {
+    .wp-block-embed-twitter,
+    .wp-block-embed-instagram {
       max-width: calc(100vw - 16px);
       margin: 0px;
     }
   }
-  :global(
-      .wp-block-embed.is-type-rich.is-provider-embed-handler.wp-block-embed-embed-handler
-    ) {
+  .wp-block-embed.is-type-rich.is-provider-embed-handler.wp-block-embed-embed-handler {
     margin: 0px;
   }
-  :global(.youtube-player) {
+  .youtube-player {
     max-width: calc(100vw - 16px);
   }
-  :global(html) {
+  iframe {
+    max-width: 100%;
+  }
+  html {
     background: white;
   }
-  :global(figure) {
+  figure {
     margin: 0;
   }
-  :global(
-      .wp-block-embed.is-type-wp-embed.is-provider-the-point-magazine.wp-block-embed-the-point-magazine
-        iframe
-    ) {
+  .wp-block-embed.is-type-wp-embed.is-provider-the-point-magazine.wp-block-embed-the-point-magazine
+    iframe {
     position: unset !important;
     clip: auto !important;
     width: 100%;
