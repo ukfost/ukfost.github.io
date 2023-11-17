@@ -44,7 +44,7 @@ const { post } = Astro.props;
     margin: 0px;
   }
   .youtube-player {
-    max-width: calc(100vw - 16px);
+    max-width: min(100%, calc(100vw - 16px));
   }
   iframe {
     max-width: 100%;
