@@ -55,10 +55,8 @@ const { post } = Astro.props;
   figure {
     margin: 0;
   }
-  .wp-block-embed.is-type-wp-embed.is-provider-the-point-magazine.wp-block-embed-the-point-magazine
-    iframe {
+  .wp-block-embed.is-type-wp-embed iframe {
     position: unset !important;
-    clip: auto !important;
-    width: 100%;
+    max-width: 100%;
   }
 </style>
