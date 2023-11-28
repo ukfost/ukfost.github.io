@@ -1,6 +1,5 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Twitter from "../components/Twitter.astro";
 import Post from "../components/Post.astro";
 import NewsletterForm from "../components/NewsletterForm.astro";
 
@@ -41,8 +40,10 @@ const data = await resp.json();
       {
         data.posts
           .filter((post) => post.slug != "about")
+          .slice(0, 5)
           .map((post) => <Post data={post} />)
       }
+      <a id="more" href="/all">More articles...</a>
     </div>
   </main>
 </Layout>
@@ -83,5 +84,9 @@ const data = await resp.json();
     display: flex;
     align-items: center;
     flex-direction: column;
+  }
+  #more {
+    display: block;
+    text-align: right;
   }
 </style>

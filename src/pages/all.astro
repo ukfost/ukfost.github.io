@@ -1,0 +1,36 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Post from "../components/Post.astro";
+
+export const prerender = true;
+
+const resp = await fetch(
+  "https://public-api.wordpress.com/rest/v1.1/sites/ukfost.wordpress.com/posts/"
+);
+const data = await resp.json();
+---
+
+<Layout title="UK Friends of Standing Together">
+  <main>
+    <div id="posts">
+      <h2>All articles</h2>
+      {
+        data.posts
+          .filter((post) => post.slug != "about")
+          .map((post) => <Post data={post} />)
+      }
+    </div>
+  </main>
+</Layout>
+
+<style>
+  #posts {
+    max-width: 700px;
+    margin-bottom: 38px;
+  }
+  main {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+</style>
