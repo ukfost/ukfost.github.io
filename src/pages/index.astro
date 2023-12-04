@@ -40,10 +40,12 @@ const data = await resp.json();
       {
         data.posts
           .filter((post) => post.slug != "about")
-          .slice(0, 5)
+          .slice(0, 8)
           .map((post) => <Post data={post} />)
       }
-      <a id="more" href="/all">More articles...</a>
+      <div id="more">
+        <a href="/all" data-button>More articles...</a>
+      </div>
     </div>
   </main>
 </Layout>
@@ -86,7 +88,11 @@ const data = await resp.json();
     flex-direction: column;
   }
   #more {
-    display: block;
+    display: flex;
+    justify-content: center;
+  }
+  #more a {
     text-align: right;
+    background-color: var(--dark-purple);
   }
 </style>
