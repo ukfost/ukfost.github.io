@@ -8,13 +8,22 @@ const { data } = Astro.props as Props;
 
 <style>
   article {
-    margin-bottom: 38px;
+    background-color: #f4f4f4;
+    border-radius: 8px;
+    margin-bottom: 12px;
+    padding: 2px 8px;
+  }
+  article:hover {
+    background-color: #e9e9e9;
+  }
+  a {
+    text-decoration: none;
   }
 </style>
 
-<article>
-  <a href={"/" + data.slug}>
+<a href={"/" + data.slug}>
+  <article>
     <h3 set:html={data.title} />
     <p set:html={data.excerpt} />
-  </a>
-</article>
+  </article>
+</a>
