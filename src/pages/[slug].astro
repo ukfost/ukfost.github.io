@@ -1,15 +1,13 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import { getPosts } from "../utils/api";
 
 export const prerender = true;
 
 export async function getStaticPaths() {
-  const resp = await fetch(
-    "https://public-api.wordpress.com/rest/v1.1/sites/ukfost.wordpress.com/posts/"
-  );
-  let data = await resp.json();
+  const posts = await getPosts();
 
-  return data.posts.map((post) => ({
+  return posts.map((post) => ({
     params: { slug: post.slug },
     props: { post: post },
   }));

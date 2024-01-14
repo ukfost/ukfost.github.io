@@ -1,13 +1,11 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Post from "../components/Post.astro";
+import { getPosts } from "../utils/api";
 
 export const prerender = true;
 
-const resp = await fetch(
-  "https://public-api.wordpress.com/rest/v1.1/sites/ukfost.wordpress.com/posts/"
-);
-const data = await resp.json();
+const posts = await getPosts();
 ---
 
 <Layout title="UK Friends of Standing Together">
@@ -15,7 +13,7 @@ const data = await resp.json();
     <div id="posts">
       <h2>All articles</h2>
       {
-        data.posts
+        posts
           .filter((post) => post.slug != "about")
           .map((post) => <Post data={post} />)
       }
