@@ -28,6 +28,7 @@ export async function get({ request }) {
       ].join(",");
       return new Response(
         header +
+          "\n" +
           [...new Set(activists.filter((activists) => activists != ""))].join(
             "\n"
           ),
