@@ -8,6 +8,6 @@ export async function post({ request }) {
 
   return new Response(null, {
     status: 302,
-    headers: { Location: "/" },
+    headers: { Location: "/volunteer" },
   });
 }

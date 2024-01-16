@@ -1,0 +1,87 @@
+---
+---
+
+<style>
+  form {
+    padding-top: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-image: linear-gradient(
+        rgba(71, 11, 61, 0.63),
+        rgba(71, 11, 61, 0.63)
+      ),
+      url("/banner.jpg");
+    background-size: cover;
+    width: 100%;
+    min-height: 300px;
+    flex-grow: 1;
+    color: white;
+    position: relative;
+  }
+  input {
+    max-width: 50ch;
+  }
+  #fields,
+  fieldset {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin: 10px;
+    max-width: 100%;
+  }
+  fieldset {
+    border-width: 1px;
+    border-style: solid;
+    accent-color: var(--pink);
+    background: var(--purple);
+    border-radius: 6px;
+    border-color: white;
+  }
+  img {
+    width: 100%;
+  }
+  h2 {
+    text-align: center;
+  }
+  input[type="submit"] {
+    background-color: var(--pink);
+    font-size: 22px;
+  }
+</style>
+
+<form id="newsletter" method="POST" action="/activist">
+  <h2>Voulenteer to help UK Friends of Standing Together</h2>
+  <div id="fields">
+    <input name="name" type="text" placeholder="Name" />
+    <input name="email" type="email" placeholder="Email" required />
+    <input name="phone" type="tel" placeholder="Phone" />
+    <input name="address" type="text" placeholder="Address" />
+    <input name="postcode" type="text" placeholder="Postcode" />
+    <fieldset>
+      <legend>What are you willing to do?</legend>
+      <label>
+        <input type="checkbox" name="steering-group" />
+        Be part of a steering group
+      </label>
+      <label>
+        <input type="checkbox" name="local-organizer" />
+        Help organise in my area
+      </label>
+      <label>
+        <input type="checkbox" name="press" />
+        Help with press or publicity
+      </label>
+      <label>
+        <input type="checkbox" name="website" />
+        Help with the website or social media
+      </label>
+      <label>
+        <input type="checkbox" name="speaker" />
+        Act as a speaker in your area
+      </label>
+    </fieldset>
+
+    <input type="submit" value="Volunteer" />
+  </div>
+</form>

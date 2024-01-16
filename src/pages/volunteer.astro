@@ -1,0 +1,23 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Post from "../components/post.astro";
+import VolunteerForm from "../components/VolunteerForm.astro";
+import { getPosts } from "../utils/api";
+
+export const prerender = true;
+---
+
+<Layout title="UK Friends of Standing Together">
+  <main>
+    <VolunteerForm />
+  </main>
+</Layout>
+
+<style>
+  main {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+</style>
