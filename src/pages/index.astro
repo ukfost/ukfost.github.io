@@ -95,3 +95,10 @@ const posts = await getPosts();
     background-color: var(--dark-purple);
   }
 </style>
+<script>
+  const urlParams = new URLSearchParams(window.location.search);
+  const thanks = urlParams.get("thanks");
+  if (thanks) {
+    alert("Thanks for volunteering! We will be in touch.");
+  }
+</script>
