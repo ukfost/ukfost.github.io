@@ -14,7 +14,6 @@ export async function post({ request }) {
   const localOrganizer = formData.get("local-organizer") == "on";
   const press = formData.get("press") == "on";
   const website = formData.get("website") == "on";
-  const speaker = formData.get("speaker") == "on";
 
   await kv.lpush(
     "activists",
@@ -29,7 +28,6 @@ export async function post({ request }) {
       localOrganizer,
       press,
       website,
-      speaker,
     ].join(",")
   );
 

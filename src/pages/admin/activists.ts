@@ -25,7 +25,6 @@ export async function get({ request }) {
         "localOrganizer",
         "press",
         "website",
-        "speaker",
       ].join(",");
       return new Response(
         header +
