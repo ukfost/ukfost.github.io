@@ -14,10 +14,23 @@ export async function get({ request }) {
     ) {
       const activists = await kv.lrange("activists", 0, -1);
 
+      const header = [
+        "name",
+        "email",
+        "phone",
+        "address",
+        "postcode",
+        "steeringGroup",
+        "localOrganizer",
+        "press",
+        "website",
+        "speaker",
+      ].join(",");
       return new Response(
-        [...new Set(activists.filter((activists) => activists != ""))].join(
-          "\n"
-        ),
+        header +
+          [...new Set(activists.filter((activists) => activists != ""))].join(
+            "\n"
+          ),
         {
           status: 200,
           headers: { "Content-Type": "text/plain" },

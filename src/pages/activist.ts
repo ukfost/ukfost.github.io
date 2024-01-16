@@ -9,9 +9,26 @@ export async function post({ request }) {
   const address = formData.get("address");
   const postcode = formData.get("postcode");
 
+  const steeringGroup = formData.get("steering-group") == "on";
+  const localOrganizer = formData.get("local-organizer") == "on";
+  const press = formData.get("press") == "on";
+  const website = formData.get("website") == "on";
+  const speaker = formData.get("speaker") == "on";
+
   await kv.lpush(
     "activists",
-    [name, email, phone, address, postcode].join(",")
+    [
+      name,
+      email,
+      phone,
+      address,
+      postcode,
+      steeringGroup,
+      localOrganizer,
+      press,
+      website,
+      speaker,
+    ].join(",")
   );
 
   return new Response(null, {
