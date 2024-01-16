@@ -33,6 +33,6 @@ export async function post({ request }) {
 
   return new Response(null, {
     status: 302,
-    headers: { Location: "/thanks=true" },
+    headers: { Location: "/?thanks=true" },
   });
 }
