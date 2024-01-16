@@ -100,5 +100,6 @@ const posts = await getPosts();
   const thanks = urlParams.get("thanks");
   if (thanks) {
     alert("Thanks for volunteering! We will be in touch.");
+    window.location.search = "";
   }
 </script>
