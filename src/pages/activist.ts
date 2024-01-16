@@ -8,6 +8,7 @@ export async function post({ request }) {
   const phone = formData.get("phone");
   const address = formData.get("address");
   const postcode = formData.get("postcode");
+  const group = formData.get("group");
 
   const steeringGroup = formData.get("steering-group") == "on";
   const localOrganizer = formData.get("local-organizer") == "on";
@@ -23,6 +24,7 @@ export async function post({ request }) {
       phone,
       address,
       postcode,
+      group,
       steeringGroup,
       localOrganizer,
       press,

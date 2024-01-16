@@ -20,6 +20,7 @@ export async function get({ request }) {
         "phone",
         "address",
         "postcode",
+        "group",
         "steeringGroup",
         "localOrganizer",
         "press",
