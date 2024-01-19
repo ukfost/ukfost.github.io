@@ -29,7 +29,7 @@ export async function get({ request }) {
       ].join(",");
       return new Response(render(activists), {
         status: 200,
-        headers: { "Content-Type": "text/plain" },
+        headers: { "Content-Type": "text/html" },
       });
     }
   }
