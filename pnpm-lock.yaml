@@ -17,6 +17,12 @@ dependencies:
   astro:
     specifier: ^2.10.14
     version: 2.10.15(@types/node@14.18.33)
+  csv-parse:
+    specifier: ^5.5.3
+    version: 5.5.3
+  csv-stringify:
+    specifier: ^6.4.5
+    version: 6.4.5
   react:
     specifier: 18.2.0
     version: 18.2.0
@@ -1617,6 +1623,14 @@ packages:
       path-key: 3.1.1
       shebang-command: 2.0.0
       which: 2.0.2
+    dev: false
+
+  /csv-parse@5.5.3:
+    resolution: {integrity: sha512-v0KW6C0qlZzoGjk6u5tLmVfyZxNgPGXZsWTXshpAgKVGmGXzaVWGdlCFxNx5iuzcXT/oJN1HHM9DZKwtAtYa+A==}
+    dev: false
+
+  /csv-stringify@6.4.5:
+    resolution: {integrity: sha512-SPu1Vnh8U5EnzpNOi1NDBL5jU5Rx7DVHr15DNg9LXDTAbQlAVAmEbVt16wZvEW9Fu9Qt4Ji8kmeCJ2B1+4rFTQ==}
     dev: false
 
   /debug@4.3.4:

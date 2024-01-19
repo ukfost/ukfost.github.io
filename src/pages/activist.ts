@@ -1,4 +1,5 @@
 import { kv } from "@vercel/kv";
+import { stringify } from "csv-stringify/sync";
 
 export async function post({ request }) {
   const formData = await request.formData();
@@ -17,18 +18,23 @@ export async function post({ request }) {
 
   await kv.lpush(
     "activists",
-    [
-      name,
-      email,
-      phone,
-      address,
-      postcode,
-      group,
-      steeringGroup,
-      localOrganizer,
-      press,
-      website,
-    ].join(",")
+    stringify(
+      [
+        [
+          name,
+          email,
+          phone,
+          address,
+          postcode,
+          group,
+          steeringGroup,
+          localOrganizer,
+          press,
+          website,
+        ],
+      ],
+      { record_delimiter: "" }
+    )
   );
 
   return new Response(null, {
