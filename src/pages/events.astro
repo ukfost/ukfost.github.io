@@ -8,15 +8,18 @@ export const prerender = true;
 const posts = await getPosts();
 ---
 
-<Layout title="UK Friends of Standing Together | All Posts">
+<Layout title="UK Friends of Standing Together | Events">
   <main>
     <div id="posts">
-      <h2>All articles</h2>
+      <h2>Events</h2>
       {
         posts
-          .filter((post) => post.slug != "about")
+          .filter((post) => post.tags.events)
           .map((post) => <Post data={post} />)
       }
+    </div>
+    <div id="more">
+      <a href="/all" data-button>More articles...</a>
     </div>
   </main>
 </Layout>
@@ -34,5 +37,14 @@ const posts = await getPosts();
   }
   #posts {
     padding-top: 18px;
+  }
+  #more {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 10px;
+  }
+  #more a {
+    text-align: right;
+    background-color: var(--dark-purple);
   }
 </style>

@@ -14,6 +14,7 @@ const posts = await getPosts();
     <NewsletterForm />
     <div id="actions">
       <a id="about" data-button href="/about">About</a>
+      <a id="events" data-button href="/events">Events</a>
       <a
         id="donate"
         target="_blank"
@@ -71,8 +72,14 @@ const posts = await getPosts();
   #actions a {
     font-size: 22px;
   }
-  #about {
+  #actions > a:nth-child(3n) {
+    background-color: var(--pink);
+  }
+  #actions > a:nth-child(3n + 1) {
     background-color: var(--blue);
+  }
+  #actions > a:nth-child(3n + 2) {
+    background-color: var(--orange);
   }
   #standing-together {
     background-color: var(--pink);

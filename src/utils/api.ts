@@ -2,6 +2,7 @@ type Post = {
   slug: string;
   title: string;
   content: string;
+  tags: Record<string, unknown>;
 };
 
 export async function getPosts(): Promise<Post[]> {
