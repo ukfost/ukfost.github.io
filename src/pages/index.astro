@@ -1,8 +1,8 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Post from "../components/Post.astro";
-import NewsletterForm from "../components/NewsletterForm.astro";
 import { getPosts } from "../utils/api";
+import ActionNetworkForm from "../components/ActionNetworkForm.astro";
 
 export const prerender = true;
 
@@ -11,7 +11,7 @@ const posts = await getPosts();
 
 <Layout title="UK Friends of Standing Together">
   <main>
-    <NewsletterForm />
+    <ActionNetworkForm />
     <div id="actions">
       <a id="about" data-button href="/about">About</a>
       <a id="events" data-button href="/events">Events</a>
