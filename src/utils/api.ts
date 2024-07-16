@@ -8,7 +8,7 @@ type Post = {
 export async function getPosts(): Promise<Post[]> {
   const posts: Post[] = [];
 
-  for (let offset = 0; offset < 100; offset += 20) {
+  for (let offset = 0; offset < 1000; offset += 20) {
     const resp = await fetch(
       `https://public-api.wordpress.com/rest/v1.1/sites/ukfost.wordpress.com/posts?offset=${offset}`
     );
