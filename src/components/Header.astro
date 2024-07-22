@@ -10,10 +10,10 @@
     justify-content: center;
     height: 40px;
   }
-  header div {
+  header > div {
     max-width: max(var(--max-w), 100%);
     min-width: min(var(--max-w), 100%);
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     display: flex;
     position: relative;
@@ -34,20 +34,17 @@
     font-weight: bold;
     font-size: 18px;
   }
-  #twitter {
-    position: absolute;
-    right: 0;
-    display: flex;
-  }
   @media (min-width: 900px) {
-    #twitter,
     #logo {
       display: block !important;
     }
   }
-  #twitter,
   #logo {
     display: none;
+  }
+  #socials {
+    display: flex;
+    gap: 10px;
   }
 </style>
 
@@ -55,8 +52,19 @@
   <div>
     <a href="/"><img id="logo" src="/ukfost-round.webp" /></a>
     <a id="title" href="/">UK Friends of Standing Together</a>
-    <a id="twitter" href="https://twitter.com/omdimbeyachadUK"
-      ><img src="/twitter.svg" alt="@omdimbeyachadUK" /></a
-    >
+    <div id="socials">
+      <a class="logo" href="https://twitter.com/omdimbeyachadUK">
+        <img src="/twitter.svg" alt="twitter" />
+      </a>
+      <a class="logo" href="https://www.instagram.com/standing.together.uk/">
+        <img src="/instagram.svg" alt="instagram" />
+      </a>
+      <a
+        class="logo"
+        href="https://www.facebook.com/people/UK-Friends-of-Standing-Together/61554352613600/"
+      >
+        <img src="/facebook.svg" alt="facebook" />
+      </a>
+    </div>
   </div>
 </header>
