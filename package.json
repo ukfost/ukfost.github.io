@@ -15,5 +15,6 @@
     "csv-parse": "^5.5.3",
     "csv-stringify": "^6.4.5",
     "react": "18.2.0"
-  }
+  },
+  "packageManager": "pnpm@9.11.0"
 }
