@@ -34,6 +34,13 @@ const posts = await getPosts();
       >
         Donate
       </a>
+      <a
+        target="_blank"
+        data-button
+        href="/take-action"
+      >
+        Take Action
+      </a>
     </div>
     <div id="summary">
       <h2>
@@ -44,7 +51,7 @@ const posts = await getPosts();
       <h2>Latest articles</h2>
       {
         posts
-          .filter((post) => post.slug != "about")
+          .filter((post) => post.slug != "about" && post.slug != "take-action")
           .slice(0, 8)
           .map((post) => <Post data={post} />)
       }

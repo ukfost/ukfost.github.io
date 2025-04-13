@@ -14,7 +14,7 @@ const posts = await getPosts();
       <h2>All articles</h2>
       {
         posts
-          .filter((post) => post.slug != "about")
+          .filter((post) => post.slug != "about" && post.slug != "take-action")
           .map((post) => <Post data={post} />)
       }
     </div>
