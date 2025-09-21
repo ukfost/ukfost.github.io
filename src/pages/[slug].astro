@@ -4,6 +4,10 @@ import { getPosts } from "../utils/api";
 
 export const prerender = true;
 
+function decodeHTMLEntities(text) {
+  return text.replace(/&#(\d+);/g, (match, dec) => String.fromCharCode(dec));
+}
+
 export async function getStaticPaths() {
   const posts = await getPosts();
 
@@ -16,7 +20,7 @@ export async function getStaticPaths() {
 const { post } = Astro.props;
 ---
 
-<Layout title={post.title + " | UK Friends of Standing Together"}>
+<Layout title={decodeHTMLEntities(post.title) + " · UK Friends of Standing Together"}>
   <main>
     <h1 set:html={post.title} />
     <div set:html={post.content} />
