@@ -8,7 +8,8 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^2.10.14",
+    "astro": "^5.13.9",
+    "pdfjs": "^2.5.4",
     "react": "18.2.0"
   },
   "packageManager": "pnpm@9.11.0"
