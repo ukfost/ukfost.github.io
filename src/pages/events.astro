@@ -6,45 +6,59 @@ import { getPosts } from "../utils/api";
 export const prerender = true;
 
 const posts = await getPosts();
+
+const ONE_WEEK_MS = 7 * 24 * 60 * 60 * 1000;
+
+const scheduledPosts = posts
+    .flatMap((post) => {
+        const scheduledTag = Object.keys(post.tags).find((tag) =>
+            /^scheduled-\d{4}-\d{2}-\d{2}$/.test(tag),
+        );
+        if (!scheduledTag) return [];
+        const date = new Date(scheduledTag.replace("scheduled-", ""));
+        const now = new Date();
+        const diff = date.getTime() - now.getTime();
+        // Keep only dates from one week ago up to and including today
+        if (diff < -ONE_WEEK_MS) return [];
+        return [{ post, date }];
+    })
+    .sort((a, b) => a.date.getTime() - b.date.getTime())
+    .map(({ post }) => post);
 ---
 
 <Layout title="UK Friends of Standing Together | Events">
-  <main>
-    <div id="posts">
-      <h2>Events</h2>
-      {
-        posts
-          .filter((post) => post.tags.events)
-          .map((post) => <Post data={post} />)
-      }
-    </div>
+    <main>
+        <div id="posts">
+            <h2>Events</h2>
+            {scheduledPosts.map((post) => <Post data={post} />)}
+        </div>
+    </main>
     <div id="more">
-      <a href="/all" data-button>More articles...</a>
+        <a href="/past-events" data-button>Past events</a>
     </div>
-  </main>
 </Layout>
 
 <style>
-  #posts {
-    padding-inline: 8px;
-    max-width: 700px;
-    margin-bottom: 38px;
-  }
-  main {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-  }
-  #posts {
-    padding-top: 18px;
-  }
-  #more {
-    display: flex;
-    justify-content: center;
-    padding-bottom: 10px;
-  }
-  #more a {
-    text-align: right;
-    background-color: var(--dark-purple);
-  }
+    #posts {
+        padding-inline: 8px;
+        max-width: 700px;
+        margin-bottom: 38px;
+    }
+    main {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+    #posts {
+        padding-top: 18px;
+    }
+    #more {
+        display: flex;
+        justify-content: center;
+        padding-bottom: 10px;
+    }
+    #more a {
+        text-align: right;
+        background-color: var(--dark-purple);
+    }
 </style>
