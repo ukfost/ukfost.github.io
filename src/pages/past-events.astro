@@ -11,6 +11,7 @@ const ONE_WEEK_MS = 7 * 24 * 60 * 60 * 1000;
 
 const pastEvents = posts.flatMap((post) => {
     const tags = post.tags && !Array.isArray(post.tags) ? post.tags : {};
+    if (!tags.events) return [];
     const scheduledTag = Object.keys(tags).find((tag) =>
         /^scheduled-\d{4}-\d{2}-\d{2}$/.test(tag),
     );
@@ -27,7 +28,7 @@ const pastEvents = posts.flatMap((post) => {
 <Layout title="UK Friends of Standing Together • Past events">
     <main>
         <div id="posts">
-            <h2>Events</h2>
+            <h2>Past events</h2>
             {pastEvents.map((post) => <Post data={post} />)}
         </div>
     </main>
